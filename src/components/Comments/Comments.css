@@ -1,0 +1,9 @@
+.comments-title {
+    margin-bottom: 30px;
+}
+
+.comment-delete-btn {
+    position: absolute;
+    right: 50px;
+    top: 5px;
+}

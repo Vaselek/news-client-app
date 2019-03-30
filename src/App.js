@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Route, Switch} from "react-router-dom";
 import {Container} from "reactstrap";
+import './App.css';
 
 
 import Stories from "./containers/Stories/Stories";
@@ -16,7 +17,7 @@ class App extends Component {
             <Toolbar/>
           </header>
           <main>
-            <Container style={{marginTop: '20px'}}>
+            <Container className="MainContainer">
               <Switch>
                 <Route path='/' exact component={Stories} />
                 <Route path='/stories/new' exact component={NewStory}/>
