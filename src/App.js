@@ -1,26 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component, Fragment} from 'react';
+import {Route, Switch} from "react-router-dom";
+import {Container} from "reactstrap";
+
+
+import Stories from "./containers/Stories/Stories";
+import Toolbar from "./components/UI/Toolbar/Toolbar";
+import NewStory from "./containers/NewStory/NewStory";
+import StoryWithComments from "./containers/StoryWithComments/StoryWithComments";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Fragment>
+          <header>
+            <Toolbar/>
+          </header>
+          <main>
+            <Container style={{marginTop: '20px'}}>
+              <Switch>
+                <Route path='/' exact component={Stories} />
+                <Route path='/stories/new' exact component={NewStory}/>
+                <Route path='/stories/:id' exact component={StoryWithComments}/>
+              </Switch>
+            </Container>
+          </main>
+        </Fragment>
     );
   }
 }
